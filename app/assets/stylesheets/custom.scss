@@ -20,6 +20,7 @@ li {
 
 a {
   text-decoration: none;
+  color:white;
 }
 
 // main
@@ -68,7 +69,7 @@ header a{
 // home
 
 .home{
-  padding: 200px 0 100px;
+  padding-top: 200px;
   text-align: center;
   width: 100%;
   position: absolute;
@@ -86,6 +87,15 @@ header a{
 
 .home p{
   font-size: 24px;
+}
+
+.home a{
+  padding:8px 24px;
+  margin-top:80px;
+  border-radius:4px;
+  opacity:0.8;
+  display:inline-block;
+  background-color:tomato;
 }
 
 // form
@@ -128,4 +138,10 @@ header a{
   margin-top: 8px;
   margin-bottom: 0;
   float: right;
+}
+
+.form-body:after {
+  content: '';
+  display: table;
+  clear: both;
 }
