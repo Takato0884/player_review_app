@@ -1,3 +1,13 @@
-<header>  
-    <%= link_to "PlayerReviewApp", root_path, id: "logo" %>
+<header>
+    <div class="header-left">
+      <%= link_to "PlayerReviewApp", root_path %>
+    </div>
+    <nav class="header-right">
+      <ul>
+        <li><%= link_to "試合情報", "#" %></li>
+        <li><%= link_to "設定", "#" %></li>
+        <li><%= link_to "ログイン", "#" %></li>
+        <li><%= link_to "マイページ(仮)", user_path(1) %></li>
+      </ul>
+    </nav>
 </header>
