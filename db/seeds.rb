@@ -1,7 +1,38 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+User.create!(name:  "Example User",
+             email: "example@railstutorial.org",
+             password:              "foobar",
+             password_confirmation: "foobar")
+
+GrampusPlayer.create!(name: "ランゲラック",player_id: "1")
+GrampusPlayer.create!(name: "渋谷飛翔",player_id: "18")
+GrampusPlayer.create!(name: "武田洋平",player_id: "21")
+GrampusPlayer.create!(name: "三井大輝",player_id: "22")
+GrampusPlayer.create!(name: "丸山祐市",player_id: "3")
+GrampusPlayer.create!(name: "中谷進之介",player_id: "4")
+GrampusPlayer.create!(name: "宮原和也",player_id: "6")
+GrampusPlayer.create!(name: "藤井陽也",player_id: "13")
+GrampusPlayer.create!(name: "木本恭生",player_id: "14")
+GrampusPlayer.create!(name: "森下龍矢",player_id: "17")
+GrampusPlayer.create!(name: "吉田豊",player_id: "23")
+GrampusPlayer.create!(name: "成瀬竣平",player_id: "26")
+GrampusPlayer.create!(name: "吉田晃",player_id: "28")
+GrampusPlayer.create!(name: "米本拓司",player_id: "2")
+GrampusPlayer.create!(name: "長澤和輝",player_id: "5")
+GrampusPlayer.create!(name: "阿部浩之",player_id: "7")
+GrampusPlayer.create!(name: "稲垣祥",player_id: "15")
+GrampusPlayer.create!(name: "斉藤学",player_id: "19")
+GrampusPlayer.create!(name: "石田凌太郎",player_id: "24")
+GrampusPlayer.create!(name: "児玉駿斗",player_id: "27")
+GrampusPlayer.create!(name: "柿谷曜一朗",player_id: "8")
+GrampusPlayer.create!(name: "山崎凌吾",player_id: "9")
+GrampusPlayer.create!(name: "ガブリエル・シャビエル",player_id: "10")
+GrampusPlayer.create!(name: "相馬勇紀",player_id: "11")
+GrampusPlayer.create!(name: "マテウス",player_id: "16")
+GrampusPlayer.create!(name: "前田直樹",player_id: "25")
+GrampusPlayer.create!(name: "金崎夢生",player_id: "44")
+
+Game.create!(date:"2021-02-28", opponent_name:"アビスパ福岡", score_my:"2", score_opponent:"1")
+Game.create!(date:"2021-03-06", opponent_name:"コンサドーレ札幌", score_my:"1", score_opponent:"0")
+Game.create!(date:"2021-03-10", opponent_name:"柏レイソル", score_my:"1", score_opponent:"0")
+Game.create!(date:"2021-03-13", opponent_name:"ヴィッセル神戸", score_my:"1", score_opponent:"0")
+Game.create!(date:"2021-03-17", opponent_name:"横浜FC", score_my:"3", score_opponent:"0")

@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_19_144721) do
+ActiveRecord::Schema.define(version: 2021_03_20_030744) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "games", force: :cascade do |t|
+    t.date "date"
+    t.string "opponent_name"
+    t.integer "score_my"
+    t.integer "score_opponent"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "grampus_players", force: :cascade do |t|
     t.string "name"
