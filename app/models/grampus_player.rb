@@ -1,0 +1,2 @@
+class GrampusPlayer < ApplicationRecord
+end
