@@ -4,6 +4,7 @@ class GamesController < ApplicationController
   end
 
   def show
+    @user = User.new
     @game = Game.find(params[:id])
     # @grampus_players = GrampusPlayer.all
     game_id = @game.id
