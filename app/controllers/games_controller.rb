@@ -5,7 +5,8 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    # game_id = @game.id
-    # @grampus_players = GrampusPlayer.where("game? = 1",game_id)
+    # @grampus_players = GrampusPlayer.all
+    game_id = @game.id
+    @grampus_players = GrampusPlayer.where("game? = 1",game_id)
   end
 end
