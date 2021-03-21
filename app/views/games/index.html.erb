@@ -1,0 +1,20 @@
+<div class="main games-index">
+  <div class="container">
+    <h1 class="games-heading">試合一覧</h1>
+    <% @games.each do |game| %>
+      <div class="games-index-item">
+        <div class="game-left">
+          <span class="game-date"><%= game.date %></span>
+          <span>名古屋グランパス</span>
+          <span class="score"><%= game.score_my %></span>
+          <span>vs</span>
+          <span class="score"><%= game.score_opponent %></span>
+          <span class="item"><%= game.opponent_name %></span>
+        </div>
+        <div class="game-right">
+          <%= link_to "詳細", game, {class: "game-details"} %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
