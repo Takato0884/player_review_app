@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_061819) do
+ActiveRecord::Schema.define(version: 2021_03_21_093628) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,20 @@ ActiveRecord::Schema.define(version: 2021_03_21_061819) do
     t.index ["player_id"], name: "index_grampus_players_on_player_id", unique: true
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "score"
+    t.bigint "user_id", null: false
+    t.bigint "game_id", null: false
+    t.bigint "grampus_player_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["game_id"], name: "index_reviews_on_game_id"
+    t.index ["grampus_player_id", "created_at"], name: "index_reviews_on_grampus_player_id_and_created_at"
+    t.index ["grampus_player_id"], name: "index_reviews_on_grampus_player_id"
+    t.index ["user_id", "game_id"], name: "index_reviews_on_user_id_and_game_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.string "email"
@@ -46,4 +60,7 @@ ActiveRecord::Schema.define(version: 2021_03_21_061819) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "reviews", "games"
+  add_foreign_key "reviews", "grampus_players"
+  add_foreign_key "reviews", "users"
 end
