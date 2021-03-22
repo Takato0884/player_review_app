@@ -12,7 +12,7 @@
         <li><%= link_to "選手一覧", grampus_players_path %></li>
         <% if logged_in? %>
           <li><%= link_to "設定", "#" %></li>
-          <li><%= link_to "ログアウト", logout_path %></li>
+          <li><%= link_to "ログアウト", logout_path, method: :delete %></li>
         <% else %>
           <li><%= link_to "ログイン", login_path %></li>
         <% end %>
