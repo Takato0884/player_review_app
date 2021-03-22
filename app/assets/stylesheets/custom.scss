@@ -200,6 +200,10 @@ header a{
   background-color: orange;
 }
 
+.alert-danger{
+  background-color: tomato;
+}
+
 // games#show
 
 .games-show-heading {
@@ -257,4 +261,13 @@ header a{
   text-align: left;
   display: table-cell;
   vertical-align: middle;
+}
+
+// sessions#new
+
+.sessions-new a{
+  text-decoration: underline;
+  display: inline-block;
+  margin-top: 8px;
+  color: black;
 }
