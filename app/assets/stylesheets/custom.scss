@@ -23,6 +23,16 @@ a {
   color:white;
 }
 
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+.checkbox {
+  display: inline-block;
+  margin-top: 15px;
+}
+
 // main
 
 .main {
@@ -270,4 +280,8 @@ header a{
   display: inline-block;
   margin-top: 8px;
   color: black;
+}
+
+.sessions-new input[type="submit"] {
+  margin-top: 25px;
 }
