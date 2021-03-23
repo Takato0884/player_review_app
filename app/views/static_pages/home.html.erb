@@ -1,7 +1,16 @@
-<div class="home">
-  <div class="home-message">
-    <h1>Player Review</h1>
-    <p>J1クラブの試合終了後に選手たちを採点・評価し、共有できるアプリケーションです。</p>
-    <%= link_to "新規登録はこちら", new_user_path %>
+<% if logged_in? %>
+  <div class="users-show">
+    <h1>
+      <%= gravatar_for @user %>
+      <%= @user.name %>
+    </h1>
   </div>
-</div>
+<% else %>
+  <div class="home">
+    <div class="home-message">
+      <h1>Player Review</h1>
+      <p>J1クラブの試合終了後に選手たちを採点・評価し、共有できるアプリケーションです。</p>
+      <%= link_to "新規登録はこちら", new_user_path %>
+    </div>
+  </div>
+<% end %>

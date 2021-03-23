@@ -21,7 +21,7 @@ class HeaderTest < ActionDispatch::IntegrationTest
                                           password: 'password' } }
     follow_redirect!
     assert_template "users/show"
-    assert_select "a[href=?]", user_path(@user.id)
+    assert_select "a[href=?]", root_path
     assert_select "a[href=?]", games_path
     assert_select "a[href=?]", grampus_players_path
     assert_select "a[href=?]", login_path, count: 0
