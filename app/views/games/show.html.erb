@@ -9,7 +9,7 @@
         <div class="game-left">
           <%= form_with(model: @user, local: true) do |f| %>
             <span class="item"><%= grampus_player.name %></span>
-            <%= f.select :name, [["1","1"],["2","2"],["3","3"]],
+            <%= f.select :name, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]],
             include_blank: "未選択" %>
           <% end %>
         </div>
