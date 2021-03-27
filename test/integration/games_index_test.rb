@@ -6,9 +6,13 @@ class GamesIndexTest < ActionDispatch::IntegrationTest
     get games_path
     assert_template "games/index"
     games = Game.all
-    assert_equal 3, Game.count
     games.each do |game|
+      # 疑問:どうすれば日付をテストできるか
+      # 参考:「rails c」でgame.dateを調べると「Sun, 28 Feb 2021」と表示されてしまう
+      #assert_select "span", game.date
       assert_select "span", game.opponent_name
+      assert_select "span.score_my", game.score_my.to_s
+      assert_select "span.score_opponent", game.score_opponent.to_s
       assert_select 'a[href=?]', game_path(game), text: "詳細"
     end
   end
