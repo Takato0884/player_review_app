@@ -1,11 +1,8 @@
 <div class="main">
   <div class="container">
     <h1 class="games-show-heading">
-      <%= "名古屋グランパス"+" " %>
-      <%= @game.score_my %>
-      vs
-      <%= @game.score_opponent %>
-      <%= @game.opponent_name %>
+      <%= "名古屋グランパス"+" "+@game.score_my.to_s+" vs "+
+                          @game.score_opponent.to_s+" "+@game.opponent_name %>
     </h1>
     <% @grampus_players.each do |grampus_player| %>
       <div class="games-index-item">

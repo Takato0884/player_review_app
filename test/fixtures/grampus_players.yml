@@ -1,1 +1,13 @@
+langerak:
+  name: ランゲラック
+  player_id: 1
+  game1: 1
 
+shibuya:
+  name: 渋谷飛翔
+  player_id: 18
+
+maruyama:
+  name: 丸山祐一
+  player_id: 3
+  game2: 1
