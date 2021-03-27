@@ -1,13 +1,16 @@
 langerak:
+  id: 1
   name: ランゲラック
   player_id: 1
   game1: 1
 
 shibuya:
+  id: 2
   name: 渋谷飛翔
   player_id: 18
 
 maruyama:
+  id: 3
   name: 丸山祐一
   player_id: 3
   game2: 1
