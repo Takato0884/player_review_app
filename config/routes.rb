@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   resources :users
   resources :grampus_players, only: [:index, :show]
   resources :games, only: [:index, :show]
+  resources :reviews, only: [:create, :destroy]
 end
