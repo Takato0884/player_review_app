@@ -8,6 +8,7 @@ shibuya:
   id: 2
   name: 渋谷飛翔
   player_id: 18
+  game1: 1
 
 maruyama:
   id: 3

@@ -7,13 +7,16 @@
     <% @grampus_players.each do |grampus_player| %>
       <div class="games-index-item">
         <div class="game-left">
-          <%= form_with(model: @user, local: true) do |f| %>
+          <% if logged_in? %>
+            <%= render partial: 'review', locals: {grampus_player: grampus_player} %>
+          <% else %>
             <span class="item"><%= grampus_player.name %></span>
-            <%= f.select :name, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"]],
-            include_blank: "未選択" %>
           <% end %>
         </div>
       </div>
     <% end %>
   </div>
 </div>
+
+<!-- 11行目:grampus_playerはローカル変数であるためrender先では使用できない。
+そこで、localsにローカル変数を渡してrender先で使用できるようにしている。 -->
