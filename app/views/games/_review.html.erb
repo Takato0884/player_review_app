@@ -10,6 +10,8 @@
     <% @average_score = Review.where(game_id: @game.id, grampus_player_id: grampus_player.id).average(:score) %>
     平均評価点: <%= @average_score.round(1) %>
   </span>
+  <%= link_to "削除", @reviewed, method: :delete,
+                                     data: { confirm: "You sure?" } %>
 <% else %>
   <%= form_with(model: @review, local: true) do |f| %>
     <span class="item"><%= grampus_player.name %></span>
