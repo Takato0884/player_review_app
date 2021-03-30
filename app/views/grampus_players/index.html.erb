@@ -3,3 +3,19 @@
     <h1>PlayerIndexページ</h1>
   </div>
 </div>
+
+<div class="main games-index">
+  <div class="container">
+    <h1 class="games-heading">選手一覧</h1>
+    <% @players.each do |player| %>
+      <div class="games-index-item">
+        <div class="game-left">
+          <span><%= player.name %></span>
+        </div>
+        <div class="game-right">
+          <%= link_to "詳細", player, {class: "game-details"} %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
