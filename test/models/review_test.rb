@@ -6,7 +6,6 @@ class ReviewTest < ActiveSupport::TestCase
     @game = games(:one)
     @user = users(:michael)
     @grampus_player = grampus_players(:langerak)
-    # @review = Review.new(score: "5", user_id: "1", grampus_player_id: "1", game_id: "1")
     @review = @game.reviews.build(score: "5", user_id: @user.id, grampus_player_id: @grampus_player.id)
   end
 

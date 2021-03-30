@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_23_031737) do
+ActiveRecord::Schema.define(version: 2021_03_30_073517) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2021_03_23_031737) do
     t.index ["game_id"], name: "index_reviews_on_game_id"
     t.index ["grampus_player_id", "created_at"], name: "index_reviews_on_grampus_player_id_and_created_at"
     t.index ["grampus_player_id"], name: "index_reviews_on_grampus_player_id"
+    t.index ["user_id", "game_id", "grampus_player_id"], name: "index_reviews_on_user_id_and_game_id_and_grampus_player_id", unique: true
     t.index ["user_id", "game_id"], name: "index_reviews_on_user_id_and_game_id"
     t.index ["user_id"], name: "index_reviews_on_user_id"
   end

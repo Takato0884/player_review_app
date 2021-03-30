@@ -10,7 +10,16 @@
           <% if logged_in? %>
             <%= render partial: 'review', locals: {grampus_player: grampus_player} %>
           <% else %>
+            <% @average_score = Review.where(game_id: @game.id, grampus_player_id: grampus_player.id).average(:score) %>
             <span class="item"><%= grampus_player.name %></span>
+            <span class="average_score">
+              <% @average_score = Review.where(game_id: @game.id, grampus_player_id: grampus_player.id).average(:score) %>
+              <% if @average_score %>
+                平均評価点: <%= @average_score.round(1) %>
+              <% else %>
+                まだ評価はありません
+              <% end %>
+            </span>
           <% end %>
         </div>
       </div>

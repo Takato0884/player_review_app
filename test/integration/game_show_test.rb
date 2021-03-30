@@ -23,6 +23,7 @@ class GameShowTest < ActionDispatch::IntegrationTest
     assert_select "select#review_score", count: 1
     assert_select "form input[name=commit]", count: 1
     assert_select "span.reviewed_score", count: 1
+    assert_select "span.average_score", count: 2
   end
 
   test "game_show display without login" do
@@ -40,5 +41,8 @@ class GameShowTest < ActionDispatch::IntegrationTest
     assert_select "select#review_score", count: 0
     assert_select "form input[name=commit]", count: 0
     assert_select "span.reviewed_score", count: 0
+    assert_select "span.average_score", count: 2
   end
+
+  
 end

@@ -1,10 +1,14 @@
 <% if Review.exists?(game_id: @game.id, user_id: current_user.id,
                       grampus_player_id: grampus_player.id) %>
   <span class="item"><%= grampus_player.name %></span>
-  <span class="reviewed_score">評価済み:
+  <span class="reviewed_score">
     <% @reviewed = Review.find_by(game_id: @game.id, user_id: current_user.id,
                           grampus_player_id: grampus_player.id) %>
-    <%= @reviewed.score %>
+    評価済み: <%= @reviewed.score %>
+  </span>
+  <span class="average_score">
+    <% @average_score = Review.where(game_id: @game.id, grampus_player_id: grampus_player.id).average(:score) %>
+    平均評価点: <%= @average_score.round(1) %>
   </span>
 <% else %>
   <%= form_with(model: @review, local: true) do |f| %>
@@ -14,5 +18,13 @@
     <span><%= hidden_field_tag :game_id, @game.id %></span>
     <span><%= hidden_field_tag :grampus_player_id, grampus_player.id %></span>
     <%= f.submit "投稿" %>
+    <span class="average_score">
+      <% @average_score = Review.where(game_id: @game.id, grampus_player_id: grampus_player.id).average(:score) %>
+      <% if @average_score %>
+        平均評価点: <%= @average_score.round(1) %>
+      <% else %>
+        まだ評価はありません
+      <% end %>
+    </span>
   <% end %>
 <% end %>
