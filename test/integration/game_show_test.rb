@@ -18,12 +18,12 @@ class GameShowTest < ActionDispatch::IntegrationTest
     assert_equal 2, grampus_players.count
     grampus_players.each do |grampus_player|
       assert_select "span", grampus_player.name
+      assert_select "span.average_score"
     end
-    # 2人の内、片方はreview投稿済みで、もう片方はreview未投稿である
+    # 2選手の内、片方はreview投稿済みで、もう片方はreview未投稿である
     assert_select "select#review_score", count: 1
     assert_select "form input[name=commit]", count: 1
     assert_select "span.reviewed_score", count: 1
-    assert_select "span.average_score", count: 2
   end
 
   test "game_show display without login" do
@@ -36,13 +36,13 @@ class GameShowTest < ActionDispatch::IntegrationTest
     assert_equal 2, grampus_players.count
     grampus_players.each do |grampus_player|
       assert_select "span", grampus_player.name
+      assert_select "span.average_score"
     end
     # ここより下のテストが重要
     assert_select "select#review_score", count: 0
     assert_select "form input[name=commit]", count: 0
     assert_select "span.reviewed_score", count: 0
-    assert_select "span.average_score", count: 2
   end
 
-  
+
 end

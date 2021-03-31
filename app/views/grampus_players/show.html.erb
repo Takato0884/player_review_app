@@ -1,5 +1,23 @@
 <div class="main">
   <div class="container">
-    <h1 class="games-show-heading"><%= @player.name %></h1>
+    <h1 class="games-show-heading"><%= @player.name %>の出場試合</h1>
+    <% @games.each do |game| %>
+      <div class="games-index-item">
+        <div class="game-left">
+            <span class="item">vs<%= game.opponent_name %></span>
+            <span class="average_score">
+              <% @average_score = Review.where(game_id: game.id, grampus_player_id: params[:id]).average(:score) %>
+              <% if @average_score %>
+                平均評価点: <%= @average_score.round(1) %>
+              <% else %>
+                まだ評価はありません
+              <% end %>
+            </span>
+        </div>
+        <div class="game-right">
+          <%= link_to "詳細", game, {class: "game-details"} %>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>
