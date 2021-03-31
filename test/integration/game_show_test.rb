@@ -18,6 +18,7 @@ class GameShowTest < ActionDispatch::IntegrationTest
     assert_equal 2, grampus_players.count
     grampus_players.each do |grampus_player|
       assert_select "span", grampus_player.name
+      assert_select 'a[href=?]', grampus_player_path(grampus_player), text: "詳細"
       assert_select "span.average_score"
     end
     # 2選手の内、片方はreview投稿済みで、もう片方はreview未投稿である
@@ -36,6 +37,7 @@ class GameShowTest < ActionDispatch::IntegrationTest
     assert_equal 2, grampus_players.count
     grampus_players.each do |grampus_player|
       assert_select "span", grampus_player.name
+      assert_select 'a[href=?]', grampus_player_path(grampus_player), text: "詳細"
       assert_select "span.average_score"
     end
     # ここより下のテストが重要
