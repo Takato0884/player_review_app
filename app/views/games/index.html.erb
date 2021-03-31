@@ -1,17 +1,17 @@
 <div class="main games-index">
   <div class="container">
-    <h1 class="games-heading">試合一覧</h1>
+    <h1 class="index-heading">試合一覧</h1>
     <% @games.each do |game| %>
-      <div class="games-index-item">
-        <div class="game-left">
+      <div class="index-item">
+        <div class="item-left">
           <span class="game-date"><%= game.date %></span>
           <span>名古屋グランパス</span>
           <span class="score score_my"><%= game.score_my %></span>
           <span>vs</span>
           <span class="score score_opponent"><%= game.score_opponent %></span>
-          <span class="item"><%= game.opponent_name %></span>
+          <span><%= game.opponent_name %></span>
         </div>
-        <div class="game-right">
+        <div class="item-right">
           <%= link_to "詳細", game, {class: "game-details"} %>
         </div>
       </div>

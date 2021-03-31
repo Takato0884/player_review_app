@@ -1,17 +1,17 @@
 <div class="main">
   <div class="container">
-    <h1 class="games-show-heading">
+    <h1 class="show-heading">
       <%= "名古屋グランパス"+" "+@game.score_my.to_s+" vs "+
                           @game.score_opponent.to_s+" "+@game.opponent_name %>
     </h1>
     <% @grampus_players.each do |grampus_player| %>
-      <div class="games-index-item">
-        <div class="game-left">
+      <div class="index-item">
+        <div class="item-left">
           <% if logged_in? %>
             <%= render partial: 'review', locals: {grampus_player: grampus_player} %>
           <% else %>
             <% @average_score = Review.where(game_id: @game.id, grampus_player_id: grampus_player.id).average(:score) %>
-            <span class="item"><%= grampus_player.name %></span>
+            <span><%= grampus_player.name %></span>
             <span class="average_score">
               <% @average_score = Review.where(game_id: @game.id, grampus_player_id: grampus_player.id).average(:score) %>
               <% if @average_score %>
@@ -22,7 +22,7 @@
             </span>
           <% end %>
         </div>
-        <div class="game-right">
+        <div class="item-right">
           <%= link_to "詳細", grampus_player, {class: "game-details"} %>
         </div>
       </div>
