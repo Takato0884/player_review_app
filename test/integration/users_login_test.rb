@@ -48,8 +48,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test "login with remembering" do
     log_in_as(@user, remember_me: "1")
     assert_not_empty cookies[:user_id]
-    # 疑問：直近はUserControllerのはずなのに何故、assigns()でSessionController
-    # の@userを参照できるのか
+    # 疑問：直近はUserControllerのはずなのに何故、assigns()でSessionControllerの@userを参照できるのか
     assert_equal cookies[:remember_token], assigns(:user).remember_token
     delete logout_path
     assert_empty cookies[:user_id]
