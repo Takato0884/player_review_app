@@ -1,0 +1,14 @@
+<div class="main">
+  <div class="login-container">
+    <div class="left-login-container">
+        <div class="profile-upper">
+          <%= link_to gravatar_for(current_user, size: 50), current_user %>
+          <h1 class="name"><%= @user.name %></h1>
+          <p class="review_num">評価数: <%= @review_count %></p>
+        </div>
+    </div>
+    <div class="right-login-container">
+
+    </div>
+  </div>
+</div>

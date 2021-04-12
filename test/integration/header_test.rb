@@ -6,6 +6,7 @@ class HeaderTest < ActionDispatch::IntegrationTest
     @user = users(:michael)
   end
 
+  #　ログイン後のテストが不十分
   test "header when logging in/not logging in" do
     get login_path
     post login_path, params: { session: { email:    @user.email,
@@ -15,7 +16,7 @@ class HeaderTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", games_path
     assert_select "a[href=?]", grampus_players_path
     assert_select "a[href=?]", login_path, count: 0
-    #設定のurlに関するテストをここに追加予定
+    assert_select "a[href=?]", edit_user_path(@user)
     assert_select "a[href=?]", logout_path
 
     delete logout_path
